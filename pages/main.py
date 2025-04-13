@@ -15,9 +15,12 @@ import base64
 import asyncio
 
 # Load environment variables
-load_dotenv()
-api_key = os.getenv("API_KEY")
+# load_dotenv()
+st.sidebar.title("Enter your Groq API Key")
+api_key = st.sidebar.text_input("Enter your Gemini API Key", type="password", key="api_key")
 API = api_key
+
+st.info("This is an info message. Great for showing helpful tips.")
 
 # Function to convert WebM/Opus to WAV
 def convert_webm_to_wav(audio_bytes):
