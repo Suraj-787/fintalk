@@ -1,18 +1,31 @@
-# Core Streamlit dependencies
-streamlit>=1.28.0
-streamlit-mic-recorder>=0.0.5
+# FastAPI backend (api_server.py) — install these first
+fastapi>=0.115.0
+uvicorn[standard]>=0.34.0
+python-multipart>=0.0.20
 
-# AI/ML dependencies
-google-generativeai>=0.3.0
-langdetect>=1.0.9
+# Google Generative AI (new SDK — api_server.py uses `from google import genai`)
+google-genai>=0.8.0
+
+# Language detection
 langid>=1.1.6
 
-# Audio processing
-numpy>=1.24.0
-soundfile>=0.12.1
-scipy>=1.10.0
-
 # Utilities
-python-dotenv>=1.0.0
-requests>=2.31.0
-rich>=13.0.0
+python-dotenv>=1.1.0
+requests>=2.32.0
+pydantic>=2.10.0
+
+# ── Streamlit frontend (home.py / pages/) ──────────────────────────────────
+# Only needed if running the old Streamlit UI; not required for the Next.js frontend
+streamlit>=1.45.0
+streamlit-mic-recorder>=0.0.5
+
+# Audio processing (Streamlit frontend only)
+numpy>=2.0.0
+soundfile>=0.12.1
+scipy>=1.15.0
+
+# Older Gemini SDK used by Streamlit pages (model_utils.py / api_utils.py)
+# Keep alongside google-genai — they coexist in the same venv
+google-generativeai>=0.8.0
+
+rich>=13.9.0
